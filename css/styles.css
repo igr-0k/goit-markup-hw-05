@@ -84,6 +84,7 @@ img {
 
 .header {
   border-bottom: 1px solid #ececec;
+  background-color: var(--w-color);
 }
 
 .header .container {
@@ -118,8 +119,8 @@ img {
 }
 
 .nav-menu-link {
-  display: block;
   position: relative;
+  display: block;
   padding: 32px 0;
   margin: 0 25px;
 
@@ -136,11 +137,13 @@ img {
 
 .current::after {
   content: '';
+
+  position: absolute;
+  bottom: -1px;
   width: 100%;
   height: 4px;
   display: block;
-  position: absolute;
-  bottom: -1px;
+
   background-color: var(--accent-color);
   border-radius: 2px;
 }
@@ -158,6 +161,7 @@ img {
   display: flex;
   align-items: center;
   padding: 25px 0;
+
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -179,6 +183,22 @@ img {
   margin-right: 10px;
 }
 
+/* Fixed Header */
+
+/* 
+.header.is-fixed {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+body {
+  padding-top: 80px;
+}
+ */
+
 /* -------------Hero Section------------- */
 
 .hero-section {
@@ -196,6 +216,11 @@ img {
 }
 
 .hero-title {
+  max-width: 696px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
@@ -203,11 +228,6 @@ img {
   text-transform: uppercase;
 
   color: var(--w-color);
-
-  max-width: 696px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
 }
 
 .hero-btn {
@@ -243,14 +263,15 @@ img {
 .features-section.section {
   padding-bottom: 0;
 }
+
 .features-subtitle {
+  margin-bottom: 10px;
+
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-
-  margin-bottom: 10px;
 }
 
 .features-descr {
@@ -276,12 +297,12 @@ img {
   content: '';
   display: block;
   height: 120px;
-  background-color: #f5f4fa;
   border-radius: 4px;
+  margin-bottom: 30px;
+
+  background-color: #f5f4fa;
   background-position: center;
   background-repeat: no-repeat;
-
-  margin-bottom: 30px;
 }
 
 .features-item:nth-child(1)::before {
@@ -316,8 +337,15 @@ img {
 }
 
 .solutions-over-text {
+  position: absolute;
+  bottom: 0;
+
   width: 100%;
   height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background-color: rgba(47, 48, 58, 0.8);
   color: var(--w-color);
 
@@ -326,13 +354,6 @@ img {
   line-height: 1.14;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  position: absolute;
-  bottom: 0;
 }
 
 /* -------------Team Section------------- */
@@ -534,6 +555,7 @@ img {
   height: 44px;
   margin-right: 10px;
 }
+
 .footer-soc-link {
   display: flex;
   justify-content: center;
@@ -681,36 +703,45 @@ img {
 /* -----------------MODAL----------------- */
 
 .backdrop {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2);
   position: fixed;
   top: 0;
   left: 0;
-  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0);
+  transform: translate(-50%, -50%) scale(2);
 }
 
 .modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
   width: 528px;
   min-height: 581px;
+
   background: var(--w-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
-  position: absolute;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%) scale(1);
+
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
   width: 30px;
   height: 30px;
   background-color: var(--w-color);
@@ -722,10 +753,6 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  position: absolute;
-  top: 8px;
-  right: 8px;
 }
 
 .is-hidden {
@@ -736,4 +763,5 @@ img {
 
 .no-scroll {
   overflow: hidden;
+  margin-right: 17px;
 }
